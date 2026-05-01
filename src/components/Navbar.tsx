@@ -51,7 +51,7 @@ export default function Navbar() {
           : "1px solid transparent",
       }}
     >
-      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+      <nav className="w-full max-w-[1500px] mx-auto px-6 md:px-16 flex items-center justify-between h-24">
         {/* Logo */}
         <button
           onClick={() => handleNav("#hero")}
@@ -59,13 +59,13 @@ export default function Navbar() {
           aria-label="Go to top"
         >
           <span
-            className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
             style={{ background: "var(--gradient-1)" }}
           >
-            <Code2 size={18} className="text-white" />
+            <Code2 size={20} className="text-white" />
           </span>
           <span className="font-bold text-lg tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Alex<span className="gradient-text">.</span>
+            Anzal<span className="gradient-text">.</span>
           </span>
         </button>
 
@@ -77,7 +77,7 @@ export default function Navbar() {
               <li key={href}>
                 <button
                   onClick={() => handleNav(href)}
-                  className="relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+                  className="relative px-5 py-2.5 rounded-xl text-base font-medium transition-all duration-300"
                   style={{
                     color: active === id ? "var(--accent-light)" : "var(--text-secondary)",
                   }}

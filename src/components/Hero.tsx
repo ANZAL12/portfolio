@@ -6,52 +6,48 @@ import Image from "next/image";
 
 const ROLES = [
   "Full-Stack Developer",
-  "UI/UX Designer",
   "Open Source Enthusiast",
   "React & Next.js Expert",
 ];
 
-function useTypewriter(words: string[], speed = 80, pause = 2000) {
-  const [display, setDisplay]   = useState("");
-  const [wordIdx, setWordIdx]   = useState(0);
-  const [deleting, setDeleting] = useState(false);
-  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+function useTypewriter(words: string[], speed = 100, pause = 3000) {
+  const [display, setDisplay] = useState("");
+  const [wordIdx, setWordIdx] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const current = words[wordIdx % words.length];
-    const tick = () => {
-      setDisplay((prev) => {
-        if (!deleting) {
-          const next = current.slice(0, prev.length + 1);
-          if (next === current) {
-            timeout.current = setTimeout(() => setDeleting(true), pause);
-            return next;
-          }
-          timeout.current = setTimeout(tick, speed);
-          return next;
+    const currentWord = words[wordIdx % words.length];
+    
+    const handleTyping = () => {
+      if (!isDeleting) {
+        if (display.length < currentWord.length) {
+          setDisplay(currentWord.slice(0, display.length + 1));
         } else {
-          const next = current.slice(0, prev.length - 1);
-          if (next === "") {
-            setDeleting(false);
-            setWordIdx((i) => i + 1);
-          }
-          timeout.current = setTimeout(tick, speed / 2);
-          return next;
+          // Pause when word is finished
+          const pauseTimer = setTimeout(() => setIsDeleting(true), pause);
+          return () => clearTimeout(pauseTimer);
         }
-      });
+      } else {
+        if (display.length > 0) {
+          setDisplay(currentWord.slice(0, display.length - 1));
+        } else {
+          setIsDeleting(false);
+          setWordIdx((prev) => prev + 1);
+        }
+      }
     };
-    timeout.current = setTimeout(tick, speed);
-    return () => { if (timeout.current) clearTimeout(timeout.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wordIdx, deleting]);
+
+    const timer = setTimeout(handleTyping, speed);
+    return () => clearTimeout(timer);
+  }, [display, isDeleting, wordIdx, words, speed, pause]);
 
   return display;
 }
 
 const socials = [
-  { Icon: Code,     href: "https://github.com",   label: "GitHub" },
-  { Icon: User,     href: "https://linkedin.com",  label: "LinkedIn" },
-  { Icon: Globe,    href: "https://twitter.com",   label: "Twitter" },
+  { Icon: Code, href: "https://github.com", label: "GitHub" },
+  { Icon: User, href: "https://linkedin.com", label: "LinkedIn" },
+  { Icon: Globe, href: "https://twitter.com", label: "Twitter" },
 ];
 
 export default function Hero() {
@@ -60,11 +56,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center grid-bg overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center grid-bg overflow-hidden pt-24"
     >
       {/* Background effects are baked into the profile image */}
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center flex flex-col items-center">
         {/* Badge */}
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in"
@@ -79,22 +75,22 @@ export default function Hero() {
         </div>
 
         {/* Profile Image (Background layer) */}
-        <div 
-          className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[700px] -z-10 pointer-events-none animate-fade-in"
+        <div
+          className="absolute top-12 left-1/2 -translate-x-1/2 w-[600px] h-[600px] -z-10 pointer-events-none animate-fade-in"
           style={{ animationDelay: "0.1s", opacity: 0 }}
         >
-          <div 
-            className="w-full h-full relative" 
-            style={{ 
-              maskImage: "radial-gradient(circle at center, black 40%, transparent 75%)", 
-              WebkitMaskImage: "radial-gradient(circle at center, black 40%, transparent 75%)" 
+          <div
+            className="w-full h-full relative"
+            style={{
+              maskImage: "radial-gradient(circle at center, black 40%, transparent 75%)",
+              WebkitMaskImage: "radial-gradient(circle at center, black 40%, transparent 75%)"
             }}
           >
-            <Image 
-              src="/hero-profile.png" 
-              alt="Alex Carter" 
-              fill 
-              sizes="700px"
+            <Image
+              src="/hero-profile.png"
+              alt="Mohammed Anzal"
+              fill
+              sizes="600px"
               className="object-contain"
               priority
             />
@@ -103,11 +99,11 @@ export default function Hero() {
 
         {/* Name */}
         <h1
-          className="text-7xl md:text-9xl font-black tracking-tight mb-4 animate-fade-up mt-[450px] relative z-10"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-[6.5rem] font-black tracking-tight mb-4 animate-fade-up mt-[380px] relative z-10 whitespace-nowrap"
           style={{ animationDelay: "0.2s", opacity: 0, textShadow: "0 10px 30px rgba(0,0,0,0.8)" }}
         >
-          <span style={{ color: "var(--text-primary)" }}>Alex </span>
-          <span className="gradient-text glow-text">Carter</span>
+          <span style={{ color: "var(--text-primary)" }}>Mohammed </span>
+          <span className="gradient-text glow-text">Anzal</span>
         </h1>
 
         {/* Typewriter role */}
@@ -153,7 +149,7 @@ export default function Hero() {
 
         {/* Social icons */}
         <div
-          className="absolute bottom-10 right-10 flex items-center gap-4 animate-fade-up hidden lg:flex"
+          className="absolute bottom-10 right-0 flex items-center gap-4 animate-fade-up hidden lg:flex"
           style={{ animationDelay: "0.6s", opacity: 0 }}
         >
           {socials.map(({ Icon, href, label }) => (
@@ -181,7 +177,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
         <span className="text-xs font-medium" style={{ color: "var(--text-muted)" }}>Scroll down</span>
         <ArrowDown size={16} style={{ color: "var(--accent)" }} />
       </div>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alex Carter — Full-Stack Developer & Designer",
+  title: "Mohammed Anzal — Full-Stack Developer & Designer",
   description:
-    "Portfolio of Alex Carter, a full-stack developer and UI/UX designer crafting beautiful, performant web experiences.",
+    "Portfolio of Mohammed Anzal, a full-stack developer and UI/UX designer crafting beautiful, performant web experiences.",
   keywords: [
     "full-stack developer",
     "UI/UX designer",
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     "portfolio",
     "web developer",
   ],
-  authors: [{ name: "Alex Carter" }],
+  authors: [{ name: "Mohammed Anzal" }],
   openGraph: {
-    title: "Alex Carter — Full-Stack Developer & Designer",
+    title: "Mohammed Anzal — Full-Stack Developer & Designer",
     description:
       "Crafting beautiful, performant web experiences with modern technologies.",
     type: "website",

@@ -34,7 +34,7 @@ export default function Contact() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
           
           {/* Left side: Info */}
@@ -57,9 +57,9 @@ export default function Contact() {
 
             <div className="space-y-6">
               {[
-                { icon: Mail, label: "Email", value: "hello@alexcarter.dev", href: "mailto:hello@alexcarter.dev" },
-                { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" },
-                { icon: MessageSquare, label: "Social", value: "@alexcarter_dev", href: "#" },
+                { icon: Mail, label: "Email", value: "hello@anzal.dev", href: "mailto:hello@anzal.dev" },
+                { icon: MapPin, label: "Location", value: "India", href: "#" },
+                { icon: MessageSquare, label: "Social", value: "@anzal_dev", href: "#" },
               ].map((item) => (
                 <a 
                   key={item.label}

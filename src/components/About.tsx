@@ -54,7 +54,7 @@ export default function About() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-5xl mx-auto px-6">
         {/* Section header */}
         <motion.div
           className="text-center mb-20"

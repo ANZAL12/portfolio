@@ -78,7 +78,7 @@ const badgeVariants = {
 export default function Skills() {
   return (
     <section id="skills" className="section relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"

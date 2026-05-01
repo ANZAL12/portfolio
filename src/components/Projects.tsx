@@ -52,7 +52,7 @@ const cardVariants = {
 export default function Projects() {
   return (
     <section id="projects" className="section relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
         <motion.div 
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"

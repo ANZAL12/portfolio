@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer className="py-12 border-t border-white/5 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           
           {/* Logo & Copyright */}
@@ -18,11 +18,11 @@ export default function Footer() {
                 <span className="text-white font-black text-xs">A</span>
               </span>
               <span className="font-bold text-xl tracking-tight" style={{ color: "var(--text-primary)" }}>
-                Alex<span className="gradient-text">.</span>
+                Anzal<span className="gradient-text">.</span>
               </span>
             </div>
             <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-              © {currentYear} Alex Carter. All rights reserved.
+              © {currentYear} Mohammed Anzal. All rights reserved.
             </p>
           </div>
 
