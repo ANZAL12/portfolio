@@ -62,24 +62,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center grid-bg overflow-hidden"
     >
-      {/* Radial glow blobs */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(0,50,255,0.4) 0%, rgba(0,10,100,0.1) 50%, transparent 80%)",
-          filter: "blur(40px)",
-        }}
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(255,107,157,0.08) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
-
-      {/* Orbiting ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[600px] h-[600px] border border-white/5 rounded-full animate-spin-slow pointer-events-none" />
+      {/* Background effects are baked into the profile image */}
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
         {/* Badge */}
@@ -97,7 +80,7 @@ export default function Hero() {
 
         {/* Profile Image (Background layer) */}
         <div 
-          className="absolute top-24 left-1/2 -translate-x-1/2 w-[550px] h-[550px] -z-10 pointer-events-none animate-fade-in"
+          className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[700px] -z-10 pointer-events-none animate-fade-in"
           style={{ animationDelay: "0.1s", opacity: 0 }}
         >
           <div 
@@ -111,8 +94,8 @@ export default function Hero() {
               src="/hero-profile.png" 
               alt="Alex Carter" 
               fill 
-              sizes="550px"
-              className="object-cover"
+              sizes="700px"
+              className="object-contain"
               priority
             />
           </div>
@@ -120,7 +103,7 @@ export default function Hero() {
 
         {/* Name */}
         <h1
-          className="text-7xl md:text-9xl font-black tracking-tight mb-4 animate-fade-up mt-[380px] relative z-10"
+          className="text-7xl md:text-9xl font-black tracking-tight mb-4 animate-fade-up mt-[450px] relative z-10"
           style={{ animationDelay: "0.2s", opacity: 0, textShadow: "0 10px 30px rgba(0,0,0,0.8)" }}
         >
           <span style={{ color: "var(--text-primary)" }}>Alex </span>
