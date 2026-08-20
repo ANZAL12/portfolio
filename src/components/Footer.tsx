@@ -1,4 +1,4 @@
-import { Code, User, Globe, Heart } from "lucide-react";
+import { Code, Heart } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,24 +29,24 @@ export default function Footer() {
           {/* Nav Links */}
           <div className="flex gap-8 text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
             <a href="#about" className="hover:text-accent transition-colors">About</a>
-            <a href="#projects" className="hover:text-accent transition-colors">Projects</a>
             <a href="#skills" className="hover:text-accent transition-colors">Skills</a>
+            <a href="#education" className="hover:text-accent transition-colors">Education</a>
+            <a href="#projects" className="hover:text-accent transition-colors">Projects</a>
             <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
           </div>
 
           {/* Socials */}
           <div className="flex gap-4">
             {[
-              { icon: Code, href: "https://github.com" },
-              { icon: User, href: "https://linkedin.com" },
-              { icon: Globe, href: "https://twitter.com" },
+              { icon: Code, href: "https://github.com/ANZAL12", label: "GitHub" },
             ].map((social, i) => (
               <a 
                 key={i}
                 href={social.href}
                 target="_blank"
-                className="w-10 h-10 rounded-xl glass flex items-center justify-center hover:scale-110 hover:border-accent/50 transition-all"
-                style={{ color: "var(--text-secondary)" }}
+                rel="noreferrer"
+                aria-label={social.label}
+                className="w-10 h-10 rounded-xl glass flex items-center justify-center hover:scale-110 hover:border-accent/50 transition-all text-white/80 hover:text-white"
               >
                 <social.icon size={18} />
               </a>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Mohammed Anzal — Full-Stack Developer & Designer",
@@ -37,7 +39,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="noise antialiased">{children}</body>
+      <body className="noise antialiased cursor-none">
+        <SmoothScroll>
+          <CustomCursor />
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

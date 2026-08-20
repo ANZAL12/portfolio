@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #0f0f1a;
-  --bg-card: #13131f;
-  --bg-card-hover: #1a1a2e;
-  --accent: #6c63ff;
-  --accent-light: #8b83ff;
-  --accent-glow: rgba(108, 99, 255, 0.3);
-  --accent-secondary: #ff6b9d;
-  --text-primary: #f0f0ff;
-  --text-secondary: #9898b8;
-  --text-muted: #5a5a7a;
-  --border: rgba(108, 99, 255, 0.15);
-  --border-hover: rgba(108, 99, 255, 0.4);
-  --gradient-1: linear-gradient(135deg, #6c63ff 0%, #ff6b9d 100%);
-  --gradient-2: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  --bg-primary: #161616;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #222222;
+  --bg-card-hover: #2a2a2a;
+  --accent: #c4fb6d;
+  --accent-light: #d4fc8d;
+  --accent-glow: rgba(196, 251, 109, 0.3);
+  --accent-secondary: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --gradient-1: linear-gradient(135deg, #c4fb6d 0%, #90d020 100%);
+  --gradient-2: linear-gradient(135deg, #161616 0%, #222222 100%);
 }
 
 @theme inline {
@@ -24,20 +24,34 @@
   --color-foreground: var(--text-primary);
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'Fira Code', monospace;
+  --font-bebas: 'Bebas Neue', sans-serif;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 0px;
   }
 
   body {
-    background: var(--bg-primary);
+    background: radial-gradient(circle at 50% -20%, #1a2912 0%, var(--bg-primary) 60%);
+    background-size: 200% 200%;
+    animation: bgMotion 15s ease-in-out infinite alternate;
     color: var(--text-primary);
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
+  }
+  
+  /* Hide cursor globally on desktop pointer devices only */
+  @media (hover: hover) and (pointer: fine) {
+    html, body, *, *::before, *::after {
+      cursor: none !important;
+    }
   }
 }
 
@@ -111,6 +125,13 @@
 /* Section spacing */
 .section {
   padding: 4rem 0;
+}
+
+/* Background motion */
+@keyframes bgMotion {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Fade-in animation */
