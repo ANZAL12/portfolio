@@ -95,17 +95,17 @@ export default function Skills() {
         {/* 3D Perspective Cards Container with High-Impact Flip Transitions */}
         <div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-          style={{ perspective: 1400 }}
+          style={{ perspective: 1200 }}
         >
           {/* Card 1: Frontend Development (Dramatic 3D Y-Axis Flip from Left) */}
           <motion.div 
-            initial={{ opacity: 0, rotateY: -90, rotateX: 10, x: -70, scale: 0.75 }}
-            whileInView={{ opacity: 1, rotateY: 0, rotateX: 0, x: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.25 }}
+            initial={{ opacity: 0, rotateY: -65, y: 60, scale: 0.85 }}
+            whileInView={{ opacity: 1, rotateY: 0, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{
-              duration: 0.85,
+              duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
-              delay: 0.08,
+              delay: 0.05,
             }}
             whileHover={{ 
               y: -8,
@@ -155,13 +155,13 @@ export default function Skills() {
 
           {/* Card 2: Backend & Database (Dramatic 3D X-Axis Flip from Bottom) */}
           <motion.div 
-            initial={{ opacity: 0, rotateX: 90, y: 80, scale: 0.75 }}
+            initial={{ opacity: 0, rotateX: 65, y: 60, scale: 0.85 }}
             whileInView={{ opacity: 1, rotateX: 0, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.25 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{
-              duration: 0.85,
+              duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
-              delay: 0.22,
+              delay: 0.15,
             }}
             whileHover={{ 
               y: -8,
@@ -211,13 +211,13 @@ export default function Skills() {
 
           {/* Card 3: DevOps & Tools (Dramatic 3D Y-Axis Flip from Right) */}
           <motion.div 
-            initial={{ opacity: 0, rotateY: 90, rotateX: 10, x: 70, scale: 0.75 }}
-            whileInView={{ opacity: 1, rotateY: 0, rotateX: 0, x: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.25 }}
+            initial={{ opacity: 0, rotateY: 65, y: 60, scale: 0.85 }}
+            whileInView={{ opacity: 1, rotateY: 0, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{
-              duration: 0.85,
+              duration: 0.8,
               ease: [0.16, 1, 0.3, 1],
-              delay: 0.36,
+              delay: 0.25,
             }}
             whileHover={{ 
               y: -8,

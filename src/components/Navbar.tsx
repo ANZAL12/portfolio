@@ -60,7 +60,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
+      className="fixed top-6 right-5 md:right-auto md:left-1/2 md:-translate-x-1/2 z-50"
       style={{
         scale: navScale,
         y: navY,
@@ -68,12 +68,12 @@ export default function Navbar() {
       }}
     >
       <nav 
-        className="flex items-center gap-6 px-3 py-3 rounded-full bg-[#111111]/90 backdrop-blur-md border border-white/10 shadow-2xl"
+        className="flex items-center gap-4 md:gap-6 p-1.5 md:px-3 md:py-3 rounded-full bg-[#111111]/90 backdrop-blur-md border border-white/10 shadow-2xl"
       >
-        {/* Avatar Logo */}
+        {/* Avatar Logo (Desktop only) */}
         <button
           onClick={() => handleNav("#hero")}
-          className="w-10 h-10 rounded-full overflow-hidden border border-white/20 shrink-0 cursor-pointer"
+          className="w-10 h-10 rounded-full overflow-hidden border border-white/20 shrink-0 cursor-pointer hidden md:block"
           aria-label="Go to top"
         >
           <img src="/hero-profile.png" alt="Avatar" className="w-full h-full object-cover" />
@@ -109,11 +109,10 @@ export default function Navbar() {
           Contact
         </a>
 
-        {/* Mobile burger */}
+        {/* Mobile burger (3 lines) */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-lg transition-colors cursor-pointer"
-          style={{ color: "var(--text-primary)" }}
+          className="md:hidden w-11 h-11 rounded-full flex items-center justify-center transition-colors cursor-pointer text-white hover:bg-white/10"
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -122,21 +121,21 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className="md:hidden overflow-hidden transition-all duration-400"
+        className="md:hidden overflow-hidden transition-all duration-400 absolute right-0 top-full mt-2 w-56"
         style={{
           maxHeight: open ? "400px" : "0",
           opacity: open ? 1 : 0,
         }}
       >
         <div
-          className="px-6 pb-6 pt-2 flex flex-col gap-1 rounded-3xl mt-2 border border-white/10"
-          style={{ background: "rgba(10,10,15,0.95)", backdropFilter: "blur(20px)" }}
+          className="p-3 flex flex-col gap-1 rounded-2xl border border-white/10 shadow-2xl"
+          style={{ background: "rgba(18,18,24,0.96)", backdropFilter: "blur(20px)" }}
         >
           {navLinks.map(({ label, href }) => (
             <button
               key={href}
               onClick={() => handleNav(href)}
-              className="text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/5 cursor-pointer"
+              className="text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/5 cursor-pointer"
               style={{ color: "var(--text-secondary)" }}
             >
               {label}
@@ -144,10 +143,9 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => handleNav("#contact")}
-            className="mt-2 px-5 py-3 rounded-xl text-sm font-semibold text-white cursor-pointer"
-            style={{ background: "var(--gradient-1)" }}
+            className="mt-1 px-4 py-2.5 rounded-xl text-sm font-semibold text-black cursor-pointer bg-[var(--accent)] hover:opacity-90 transition-opacity"
           >
-            Hire Me
+            Contact Me
           </button>
         </div>
       </div>

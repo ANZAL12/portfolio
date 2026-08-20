@@ -37,12 +37,11 @@ export default function Education() {
           <motion.div 
             initial={{ 
               opacity: 0, 
-              y: 120, 
-              x: -60, 
+              y: 100, 
               rotateX: 25, 
               rotateY: -20, 
               rotateZ: -4, 
-              scale: 0.82 
+              scale: 0.85 
             }}
             whileInView={{ 
               opacity: 1, 
