@@ -73,12 +73,15 @@ export default function Hero() {
     restDelta: 0.001,
   });
 
+  // Dynamic travel progress that completes smoothly right as About section enters view
+  const travelProgress = useTransform(smoothProgress, [0, 0.55], [0, 1], { clamp: true });
+
   // Dynamic transforms based on calculated target offsets
-  const photoY = useTransform(smoothProgress, (val) => val * targetOffset.y);
-  const photoX = useTransform(smoothProgress, (val) => val * targetOffset.x);
-  const photoRotateY = useTransform(smoothProgress, [0, 1], [0, 360]);
-  const photoRotateZ = useTransform(smoothProgress, [0, 0.5, 1], [0, 6, 0]);
-  const shineOpacity = useTransform(smoothProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0.4, 0.7, 0.4, 0]);
+  const photoY = useTransform(travelProgress, (val) => val * targetOffset.y);
+  const photoX = useTransform(travelProgress, (val) => val * targetOffset.x);
+  const photoRotateY = useTransform(travelProgress, [0, 1], [0, 360]);
+  const photoRotateZ = useTransform(travelProgress, [0, 0.5, 1], [0, 6, 0]);
+  const shineOpacity = useTransform(travelProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0.4, 0.7, 0.4, 0]);
 
   // Smart single small scroll catch-up on user wheel/touch gesture
   useEffect(() => {
